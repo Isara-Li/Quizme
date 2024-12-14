@@ -74,3 +74,12 @@ body {
 nextjs-portal {
   display: none;
 }
+
+/* Hide scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+.custom-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
