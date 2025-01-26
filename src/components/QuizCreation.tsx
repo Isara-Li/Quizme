@@ -24,27 +24,60 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { BookOpen, CopyCheck } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
 
-type Props = {}
+type Props = {
+  topic: string;
+};
 
 type Input = z.infer<typeof quizCreationSchema>;
 
-const QuizCreation = (props: Props) => {
-  // Move useForm inside the component function
+const QuizCreation = ({ topic: topicParam }: Props) => {
+  const router = useRouter();
+  const [showLoader, setShowLoader] = React.useState(false);
+  const [finishedLoading, setFinishedLoading] = React.useState(false);
+
+  const { mutate: getQuestions } = useMutation({
+    mutationFn: async ({ amount, topic, type }: Input) => {
+      const response = await axios.post("/api/game", { amount, topic, type });
+      return response.data;
+    },
+  });
+
   const form = useForm<Input>({
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
-      topic: "",
+      topic: topicParam,
       type: "mcq",
       amount: 3,
     },
   });
 
-  const onSubmit = (data: Input) => {
-    console.log(data);
-  }
-
+  const onSubmit = async (data: Input) => {
+    setShowLoader(true);
+    getQuestions(data, {
+      onError: (error) => {
+        setShowLoader(false);
+        if (error instanceof AxiosError) {
+        }
+      },
+      onSuccess: ({ gameId }: { gameId: string }) => {
+        setFinishedLoading(true);
+        setTimeout(() => {
+          if (form.getValues("type") === "mcq") {
+            router.push(`/play/mcq/${gameId}`);
+          } else if (form.getValues("type") === "open_ended") {
+            router.push(`/play/open-ended/${gameId}`);
+          }
+        }, 2000);
+      },
+    });
+  };
   form.watch();
+
+
   return (
     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
       <Card>
@@ -125,18 +158,16 @@ const QuizCreation = (props: Props) => {
                 >
                   <BookOpen className="w-4 h-4 mr-2" /> Open Ended
                 </Button>
-              </div >
-              <div className="flex justify-center align-middle">
-              <Button  type="submit">
+              </div>
+              <Button type="submit">
                 Submit
               </Button>
-              </div>
             </form>
           </Form>
         </CardContent>
       </Card>
     </div>
   );
-}
+};
 
 export default QuizCreation;
