@@ -5,6 +5,7 @@ import {Inter} from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +44,7 @@ export default function RootLayout({
           <main className="flex-grow pt-16">
             {children}
           </main>
+          <Toaster />
         </Providers>
       </body>
     </html>
