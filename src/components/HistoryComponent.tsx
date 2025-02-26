@@ -20,7 +20,7 @@ const HistoryComponent = async ({ limit, userId }: Props) => {
     },
   });
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 overflow-hidden"> 
       {games.map((game) => {
         return (
           <div className="flex items-center justify-between" key={game.id}>
