@@ -11,6 +11,7 @@ import {
 import UserAvatar from "./UserAvatar";
 import Link from 'next/link';
 import { signOut } from "next-auth/react";
+import MessageBox from "../components/message"
 
 type Props = {
     user: Pick<User, "name" | "image" | "email">;
@@ -41,16 +42,10 @@ const UserAccountNav = ({ user }: Props) => {
           </div>
           <DropdownMenuSeparator />
   
-          <DropdownMenuItem
-            onSelect={(event) => {
-              event.preventDefault();
-              signOut().catch(console.error);
-            }}
-            className="text-red-600 cursor-pointer"
-          >
-            Sign out
+         
+            <MessageBox/>
             
-          </DropdownMenuItem>
+  
         </DropdownMenuContent>
       </DropdownMenu>
     );
