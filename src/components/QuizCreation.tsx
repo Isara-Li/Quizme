@@ -28,6 +28,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 
+import LoadingQuestions from "./LoadingQuestions";
+
 type Props = {
   topic: string;
 };
@@ -76,7 +78,9 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
     });
   };
   form.watch();
-
+  if (showLoader) {
+    return <LoadingQuestions finished={finishedLoading} />;
+  }
 
   return (
     <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
