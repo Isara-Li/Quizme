@@ -20,7 +20,7 @@ const Quiz = async ({ searchParams }: Props) => {
   if (!session?.user) {
     redirect("/");
   }
-  return <QuizCreation/>;
+  return <QuizCreation topic={searchParams.topic ?? ""} />;
 };
 
 export default Quiz;

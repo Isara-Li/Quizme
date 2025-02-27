@@ -83,7 +83,7 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
   }
 
   return (
-    <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+    <div className="absolute -translate-x-1/2 -translate-y-1/3 top-1/2 left-1/2 py-8">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl font-bold">Quiz Creation</CardTitle>
