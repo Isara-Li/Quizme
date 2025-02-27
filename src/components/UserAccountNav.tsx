@@ -11,7 +11,7 @@ import {
 import UserAvatar from "./UserAvatar";
 import Link from 'next/link';
 import { signOut } from "next-auth/react";
-import MessageBox from "../components/message"
+import MessageBox from "../components/Message"
 
 type Props = {
     user: Pick<User, "name" | "image" | "email">;
