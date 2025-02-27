@@ -9,6 +9,7 @@ import TypingText from "@/components/typing-text";
 import AnimatedCard from "@/components/dashboard/AnimatedCard";
 import AnimatedBorderTrail from "@/components/MovingLine";
 
+
 type Props = {};
 
 export const metadata = {
