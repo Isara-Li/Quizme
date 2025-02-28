@@ -33,7 +33,7 @@ export function AlertDialogDemo() {
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogTrigger asChild>
-        <Button variant="outline" onClick={() => setIsOpen(true)}>
+        <Button variant="outline" className="w-full" onClick={() => setIsOpen(true)}>
           Sign Out
         </Button>
       </AlertDialogTrigger>

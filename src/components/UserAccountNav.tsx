@@ -10,7 +10,7 @@ import {
   } from "@/components/ui/dropdown-menu";
 import UserAvatar from "./UserAvatar";
 import Link from 'next/link';
-import { signOut } from "next-auth/react";
+import { Button } from "@/components/ui/button";
 import MessageBox from "../components/Message"
 
 type Props = {
@@ -39,6 +39,11 @@ const UserAccountNav = ({ user }: Props) => {
                 </p>
               )}
             </div>
+            <Button variant="outline" asChild>
+  <Link href="/profile">
+    View Profile
+  </Link>
+</Button>
           </div>
           <DropdownMenuSeparator />
   

@@ -10,6 +10,7 @@ import AnimatedCard from "@/components/dashboard/AnimatedCard";
 import AnimatedBorderTrail from "@/components/MovingLine";
 
 
+
 type Props = {};
 
 export const metadata = {
@@ -26,7 +27,7 @@ const Dashboard = async (props: Props) => {
   return (
 
     <main className="p-8 mx-auto max-w-7xl">
-    
+  
         <TypingText text="Welcome to Quizeme!" repeat = {false} className="text-2xl font-bold text-center" />
       <div className="flex items-center text-center justify-center gap-4 p-4">
         <h2 className="mr-2 text-3xl font-bold tracking-tight p-4 ">Dashboard</h2>
