@@ -106,3 +106,7 @@ nextjs-portal {
   initial-value: 0deg;
   inherits: false;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
