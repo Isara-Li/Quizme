@@ -11,7 +11,7 @@ import {
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import MessageBox from "@/components/Message";
+import MessageBox from "../components/message";
 
 type Props = {
   user: Pick<User, "name" | "image" | "email">;
