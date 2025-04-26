@@ -68,4 +68,5 @@ QuizMe is a modern web application built with Next.js that provides an interacti
 ## 🎥 Demo Video
 
 Check out our demo video to see QuizMe in action:
-[Watch Demo Video](https://drive.google.com/file/d/13JDHyv5HmlW7r52JU60lN5aVnY6g0LZF/view?usp=sharing)
+
+https://github.com/user-attachments/assets/3fb3dc50-4b80-4859-8589-7c3c305da8e5
