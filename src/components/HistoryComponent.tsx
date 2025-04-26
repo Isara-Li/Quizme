@@ -20,7 +20,7 @@ const HistoryComponent = async ({ limit, userId }: Props) => {
     },
   });
   return (
-    <div className="space-y-8 overflow-y-auto scrollbar-hide"> 
+    <div className="space-y-8 overflow-y-auto scrollbar-hide">
       {games.map((game) => {
         return (
           <div className="flex items-center justify-between" key={game.id}>
@@ -37,11 +37,8 @@ const HistoryComponent = async ({ limit, userId }: Props) => {
                 >
                   {game.topic}
                 </Link>
+
                 <p className="flex items-center px-2 py-1 text-xs text-white rounded-lg w-fit bg-slate-800">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {new Date(game.timeEnded ?? 0).toLocaleDateString()}
-                </p>
-                <p className="text-sm text-muted-foreground">
                   {game.gameType === "mcq" ? "Multiple Choice" : "Open-Ended"}
                 </p>
               </div>
