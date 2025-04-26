@@ -11,8 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button, buttonVariants } from "./ui/button";
-import OpenEndedPercentage from "../components/OpenEndedPercentage";
-import BlankAnswerInput from "../components/BlankAnswerInput";
+import OpenEndedPercentage from "@/components/OpenEndedPercentage";
+import BlankAnswerInput from "@/components/BlankAnswerInput";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { checkAnswerSchema, endGameSchema } from "@/schemas/questions";
@@ -46,10 +46,12 @@ const OpenEnded = ({ game }: Props) => {
   const { mutate: checkAnswer, isPending: isChecking } = useMutation({
     mutationFn: async () => {
       let filledAnswer = blankAnswer;
-      document.querySelectorAll<HTMLInputElement>("#user-blank-input").forEach((input) => {
-        filledAnswer = filledAnswer.replace("_____", input.value);
-        input.value = "";
-      });
+      document
+        .querySelectorAll<HTMLInputElement>("#user-blank-input")
+        .forEach((input) => {
+          filledAnswer = filledAnswer.replace("_____", input.value);
+          input.value = "";
+        });
       const payload: z.infer<typeof checkAnswerSchema> = {
         questionId: currentQuestion.id,
         userInput: filledAnswer,
