@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/questions.ts": {
+      "api/questions": {
         "maxDuration": 50
       }
     }
