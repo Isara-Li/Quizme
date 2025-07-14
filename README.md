@@ -2,6 +2,10 @@
 
 QuizMe is a modern web application built with Next.js that provides an interactive quiz platform with advanced features.
 
+Check out our demo video to see QuizMe in action:
+
+https://github.com/user-attachments/assets/3fb3dc50-4b80-4859-8589-7c3c305da8e5
+
 ## 🚀 Features
 
 - **Interactive Quiz Platform**: Create, take, and manage quizzes
@@ -65,8 +69,3 @@ QuizMe is a modern web application built with Next.js that provides an interacti
 - npm or yarn
 - PostgreSQL (or your preferred database)
 
-## 🎥 Demo Video
-
-Check out our demo video to see QuizMe in action:
-
-https://github.com/user-attachments/assets/3fb3dc50-4b80-4859-8589-7c3c305da8e5
